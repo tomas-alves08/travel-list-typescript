@@ -27,10 +27,6 @@ const App: FC = () => {
   }
 
   function packItemHandler(id: ITravelItem["id"]) {
-    // const itemIndex = travelItems.findIndex((item) => item.id === id);
-    // const packedItem = travelItems[itemIndex];
-    // packedItem.packed = !packedItem.packed;
-
     setTravelItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -47,7 +43,7 @@ const App: FC = () => {
         onDeleteItem={deleteItemHandler}
         onPackItem={packItemHandler}
       />
-      <Stats />
+      <Stats items={travelItems} />
     </div>
   );
 };
