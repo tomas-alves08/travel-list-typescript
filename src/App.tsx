@@ -34,6 +34,14 @@ const App: FC = () => {
     );
   }
 
+  function clearListHandler() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (confirmed) setTravelItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -42,6 +50,7 @@ const App: FC = () => {
         items={travelItems}
         onDeleteItem={deleteItemHandler}
         onPackItem={packItemHandler}
+        onClearList={clearListHandler}
       />
       <Stats items={travelItems} />
     </div>
